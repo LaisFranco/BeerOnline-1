@@ -13,6 +13,11 @@ var app = angular.module('appRoutes', ['ngResource']).config(['$routeProvider', 
 			// resolve: {id: function() { return 1; }}
 		})
 
+		.when('/inventory/new-product/', {
+			templateUrl: 'views/create-product.html',
+			controller: 'CreateProductController'
+		})
+
 		.when('/clients', {
 			templateUrl: 'views/clients.html',
 			controller: 'ClientController'

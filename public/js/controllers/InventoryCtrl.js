@@ -16,6 +16,15 @@ angular.module('InventoryCtrl', []).controller('InventoryController', ['$scope',
 			//console.log($scope.products);
 		});
 	};
+	
+	$scope.update = function (product) {
+		//console.log("Showing Product");
+
+		Product.getProduct(product._id, function(product) {
+			$scope.d = product;
+			console.log($scope.d);
+		});
+	};
 
 	$scope.remove = function(id, name) {
 		if(confirm('Are you sure to delete ' + name + '?')) {
