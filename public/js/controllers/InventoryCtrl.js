@@ -1,7 +1,3 @@
-angular.module('InventoryCtrl', []).controller('InventoryController', function($scope) {
-
-});
-
 angular.module('InventoryCtrl', []).controller('InventoryController', ['$scope', '$http', 'Product', function($scope, $http, Product) {
     //console.log("Inside InventoryController");
     var init = function () {

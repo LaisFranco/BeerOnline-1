@@ -1,4 +1,4 @@
-angular.module('InventoryService', ['ngResource']).factory('Product', ['$http', function($http, $resource) {
+angular.module('InventoryService', []).factory('Product', ['$http', function($http) {
 
 	product: [];
 	

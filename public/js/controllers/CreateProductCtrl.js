@@ -13,30 +13,26 @@ angular.module('CreateProductCtrl', []).controller('CreateProductController', ['
 
 		Product.getProducts(function(list) {
 			var products = list;
-			console.log(products);
+			//console.log(products);
 			var length = products.length;
 			console.log(length);
-			return products[length][0];
+			$scope.length = length;
 			//console.log($scope.products);
 		});
 	};
 	
 	var setForm = function () {
 		var form = document.getElementById('form');
-		console.log(form);
 		form.addEventListener('submit', function(event) {
 			addGuest(form);
-			//it is to avoid form submition
 			event.preventDefault();
 		});
-		//GuestController.setFocus();
 	};
 
 	var addGuest = function(form) {
-		var id = showList();
-		console.log(id);
+		console.log("My id is gonna be: " + $scope.length);
 		var product = {
-			id: id,
+			id: $scope.length,
 			name: form.name.value,
 			brand: form.brand.value,
 			weight: form.weight.value,

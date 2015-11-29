@@ -58,7 +58,10 @@ router.get('/', function(req, res) {
 router.route('/products').post(function(req, res) {
         
         var product = new Product();      // create a new instance of the Product model
-        product.name = req.body.name;  // set the products name (comes from the request)
+        product.name = req.body.name;
+        product.brand = req.body.brand;
+        product.weight = req.body.weight;
+        product.qty = req.body.qty;
 
         // save the product and check for errors
         product.save(function(err) {
@@ -90,7 +93,7 @@ router.route('/products/:product_id').get(function(req, res) {
         });
     });
 
-router.route('/products/:product_id').patch(function(req, res) {
+router.route('/products/:product_id').put(function(req, res) {
 
         // use our product model to find the product we want
         Product.findById(req.params.product_id, function(err, product) {
@@ -98,7 +101,11 @@ router.route('/products/:product_id').patch(function(req, res) {
             if (err)
                 res.send(err);
 
-            product.name = req.body.name;  // update the products info
+            product.name = req.body.name; 
+            product.brand = req.body.brand;
+            product.weight = req.body.weight;
+            product.qty = req.body.qty;
+            product.id = req.body.id;
 
             // save the product
             product.save(function(err) {
