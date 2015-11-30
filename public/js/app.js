@@ -1,0 +1,1 @@
+angular.module('app', ['ngRoute', 'appRoutes', 'MainCtrl', 'HistoryCtrl', 'ClientCtrl', 'CreateProductCtrl', 'ClientService', 'HistoryService', 'InventoryCtrl', 'InventoryService']);

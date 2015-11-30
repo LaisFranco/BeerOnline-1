@@ -1,0 +1,97 @@
+<div>
+	<form>		
+		</div>
+		<div class="panel panel-default">
+      		<div class="panel-heading">
+      			<h1>Manage Inventory</h1>
+      		</div>
+  			<div class="panel-body">
+   				<div class="navbar-form navbar-left">
+			        <div class="form-group">
+			          	<input type="text" class="form-control" placeholder="What are you looking for?">
+			        </div>
+			        <button type="submit" class="btn btn-default">Submit</button>
+				</div>
+  			</div>
+
+  			<table class="table text-center">
+    			<thead>
+      				<tr>
+        				<th>#</th>
+        				<th class="text-center">Brand</th>
+			            <th class="text-center">Quantity</th>
+			            <th class="text-center">Options</th>
+      				</tr>
+    			</thead>
+    			<tbody>
+			        <tr ng-repeat="x in products">
+			            <th scope="row">{{ x.id }}</th>
+			            <td>{{ x.brand }}</td>
+			            <td>{{ x.qty }}</td>
+			            <td>
+			            	<a data-toggle="modal" ng-click="update(x)" data-target="#update" class="btn btn-info">Update</a>
+			            	<button class="btn btn-danger" ng-click="remove(x.id, x.name)">Delete</button>
+			            </td>
+					</tr>
+			    </tbody>
+  			</table>
+		</div>
+		<div>
+			<a  href="/inventory/new-product/" class="btn btn-default pull-left" ng-click="add()">Create new</a>
+			<div class="pull-right">
+				<button class="btn btn-primary">Save Changes</button>
+				<button class="btn btn-warning">Cancel</button>
+			</div>
+		</div>
+	</form>
+
+	<div  id="update" class="modal fade" role="dialog" class="panel panel-default">
+	  	<div class="modal-dialog">
+
+	  		<div class="modal-content">
+		  		<div class="panel-heading modal-header">
+		  			<h1 class="modal-title">Product Info</h1>
+		  		</div>
+		  		<div class="modal-body">
+			        <form role="form">
+			            <div class="col-lg-12">
+			                <div class="form-group">
+			                    <label for="InputName">Product Name</label>
+			                    <div class="input-group">
+			                        <input type="text" class="form-control" value="{{ d.name }}" placeholder="Enter Product Name" required>
+			                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+			                    </div>
+			                </div>
+			                <div class="form-group">
+			                    <label for="InputEmail">Brand</label>
+			                    <div class="input-group">
+			                        <input type="text" class="form-control" value="{{ d.brand }}" placeholder="Enter Product Brand" required>
+			                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+			                    </div>
+			                </div>
+			                <div class="form-group">
+			                    <label for="InputEmail">Quantity</label>
+			                    <div class="input-group">
+			                        <input type="text" class="form-control" value="{{ d.qty }}" placeholder="Enter Quantity" required>
+			                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+			                    </div>
+			                </div>
+			                <div class="form-group">
+			                    <label for="InputMessage"></label>
+			                    <div class="input-group">
+			                        <input type="text" class="form-control" value="{{ d.weight }}" placeholder="Enter Weight" required>
+			                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+			                    </div>
+			                </div>
+			               	<div class="modal-footer">
+				                <button class="btn btn-warning pull-right">Cancel</button>
+				                <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right">
+				            </div>
+			            </div>
+			        </form>	
+			    </div>
+		    </div>
+	    </div>
+	</div>
+</div>
+
